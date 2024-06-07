@@ -26,6 +26,11 @@
       "bundler": "metro",
       "output": "static"
     },
-    "plugins": ["expo-router"]
+    "plugins": [
+      [
+        "expo-router",
+        { "origin": "https://rn-3-blog-dagfis-projects.vercel.app/" }
+      ]
+    ]
   }
 }
