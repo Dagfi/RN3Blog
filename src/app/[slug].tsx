@@ -47,6 +47,7 @@ const PostDetailsPage = () => {
         <Image
           source={{ uri: "/thumbnails/post1.png" }}
           style={{ width: "100%", aspectRatio: 16 / 9 }}
+          alt={post.title}
         />
 
         <Markdown>{post.content}</Markdown>
