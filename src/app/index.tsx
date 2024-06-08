@@ -1,26 +1,36 @@
 import { useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  Dimensions,
+  FlatList,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { getAllPosts } from "../repository/postRepository";
 import { Link } from "expo-router";
+import PostListItem from "../components/PostListItem";
+
+const image = {
+  uri: "https://docs.expo.dev/static/images/tutorial/background-image.png",
+};
+const bimage = { uri: "/thumbnails/background.png" };
+const screenHeight = Dimensions.get("window").height;
+const screenWidth = Dimensions.get("window").width;
 
 export default function Page() {
   const [posts, setPosts] = useState(getAllPosts());
   return (
     <View style={styles.container}>
-      <View style={styles.main}>
-        <FlatList
-          data={posts}
-          contentContainerStyle={{ gap: 20 }}
-          renderItem={({ item }) => (
-            <Link
-              href={`/${item.slug}`}
-              style={{ fontSize: 20, fontWeight: "600" }}
-            >
-              {item.title}
-            </Link>
-          )}
-        />
-      </View>
+      <ImageBackground source={bimage} style={styles.image}>
+        <View style={styles.main}>
+          <FlatList
+            data={posts}
+            contentContainerStyle={{ gap: 20 }}
+            renderItem={({ item }) => <PostListItem post={item} />}
+          />
+        </View>
+      </ImageBackground>
     </View>
   );
 }
@@ -31,12 +41,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 24,
   },
+  image: {
+    height: screenHeight,
+    width: screenWidth,
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
+  },
   main: {
     flex: 1,
     justifyContent: "center",
     maxWidth: 960,
     marginHorizontal: "auto",
   },
+
   title: {
     fontSize: 64,
     fontWeight: "bold",
