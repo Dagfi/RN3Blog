@@ -2,10 +2,10 @@ import { Post } from "../types/post";
 
 const post: Post = {
   slug: "post3",
-  date: "2024-06-06T13:27:28Z",
+  date: "2024-06-09T13:27:28Z",
   title: "Third post",
   description: "Desctiption of Post3",
-  thumbnail: "post3",
+  thumbnail: "post3.png",
   content: ` # Sude dum fulmina fateri ei sentit in
 
 ## Culmina sequi
