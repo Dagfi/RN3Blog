@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   image: {
-    // height: screenHeight,
-    // width: screenWidth,
+    height: screenHeight,
+    width: screenWidth,
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
