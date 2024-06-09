@@ -10,11 +10,10 @@ import {
 import { getAllPosts } from "../repository/postRepository";
 import { Link } from "expo-router";
 import PostListItem from "../components/PostListItem";
+import { ORIGIN } from "../config";
 
-const image = {
-  uri: "https://docs.expo.dev/static/images/tutorial/background-image.png",
-};
-const bimage = { uri: "/thumbnails/background.png" };
+// const bimage = { uri: "/thumbnails/background.png" };
+const bimage = { uri: `${ORIGIN}/thumbnails/background.png` };
 const screenHeight = Dimensions.get("window").height;
 const screenWidth = Dimensions.get("window").width;
 
@@ -42,8 +41,8 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   image: {
-    height: screenHeight,
-    width: screenWidth,
+    // height: screenHeight,
+    // width: screenWidth,
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
